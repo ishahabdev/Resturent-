@@ -6,24 +6,23 @@ export default function Hero() {
   const [showVideoModal, setShowVideoModal] = useState(false);
 
   return (
-    <section className="relative w-full bg-black text-white overflow-hidden flex items-center min-h-[460px] sm:min-h-[500px] lg:min-h-[540px]">
+    <section className="relative w-full bg-black text-white overflow-hidden flex items-center min-h-[380px] sm:min-h-[420px] lg:min-h-[460px]">
       
-      {/* Background with Cheezora Storefront with clear, rich dark contrast */}
+      {/* Background with Cheezora Storefront and smooth, natural dark glow on left */}
       <div className="absolute inset-0 z-0 bg-black">
         <img
           src="/assets/cheezora-storefront-hero.jpg"
           alt="Cheezora Restaurant Storefront"
-          className="w-full h-full object-cover object-right select-none"
+          className="w-full h-full object-cover object-right md:object-center select-none"
         />
-        {/* Overall dark tint */}
-        <div className="absolute inset-0 bg-black/40" />
-        {/* Deep, solid dark backdrop on the text side (left) for 100% crisp legibility */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-7/12 bg-black/90" />
+        {/* Smooth, natural dark glow on the left - seamlessly feathering across with zero harsh lines */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
       {/* Hero Content overlaid on the left side with refined typography */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 w-full relative z-10 py-12 sm:py-16 lg:py-20">
-        <div className="max-w-lg lg:max-w-xl space-y-4 sm:space-y-5 text-left font-body">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 w-full relative z-10 py-8 sm:py-10 lg:py-12">
+        <div className="max-w-lg lg:max-w-xl space-y-3.5 sm:space-y-4 text-left font-body">
           
           {/* 1. Small Badge: FRESHLY BAKED • EXTRA CHEESY */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#FFB000]/30 bg-[#12100E] text-[#FFB000] text-[11px] font-bold tracking-widest uppercase shadow-xs">
@@ -32,8 +31,8 @@ export default function Hero() {
           </div>
 
           {/* 2. Main Heading: Compact, balanced, elegant with signature #FFB000 */}
-          <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-extrabold text-white tracking-tight leading-[1.14]">
-            <span className="block text-zinc-100 font-bold text-2xl sm:text-3xl lg:text-[36px] mb-1">
+          <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] font-extrabold text-white tracking-tight leading-[1.14]">
+            <span className="block text-zinc-100 font-bold text-2xl sm:text-3xl lg:text-[34px] mb-0.5">
               Experience the
             </span>
             <span className="text-white">
@@ -41,7 +40,7 @@ export default function Hero() {
                 Perfect Taste
                 {/* Subtle, elegant red smile curve accent */}
                 <svg
-                  className="absolute -bottom-1.5 left-0 w-full h-2 text-cheezRed"
+                  className="absolute -bottom-1 left-0 w-full h-2 text-cheezRed"
                   viewBox="0 0 160 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -59,15 +58,15 @@ export default function Hero() {
           </h1>
 
           {/* 3. Subtitle: Clean, readable, balanced line-height */}
-          <p className="text-xs sm:text-sm text-zinc-300 max-w-md font-normal leading-relaxed pt-1">
+          <p className="text-xs sm:text-sm text-zinc-300 max-w-md font-normal leading-relaxed">
             Indulge in hand-crafted artisan pizzas loaded with 100% authentic cheese, baked fresh to golden perfection every single day.
           </p>
 
           {/* 4. Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1.5">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-5 pt-1">
             <Link
               to="/menu"
-              className="px-6 sm:px-7 py-3 rounded-full bg-cheezRed hover:bg-cheezRed-hover text-white text-xs sm:text-sm font-bold shadow-cheezRed flex items-center gap-2 transition-transform active:scale-95"
+              className="px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-cheezRed hover:bg-cheezRed-hover text-white text-xs sm:text-sm font-bold shadow-cheezRed flex items-center gap-2 transition-transform active:scale-95"
             >
               <span>Order Now</span>
               <span className="text-base font-black">→</span>
@@ -86,7 +85,7 @@ export default function Hero() {
           </div>
 
           {/* 5. Subtle Trust Micro-Badges */}
-          <div className="pt-3 flex flex-wrap items-center gap-4 sm:gap-5 text-[11px] font-semibold text-zinc-400">
+          <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-5 text-[11px] font-semibold text-zinc-400">
             <div className="flex items-center gap-1.5">
               <span className="text-amber-400">★</span>
               <span className="text-zinc-200 font-bold">4.9/5</span>

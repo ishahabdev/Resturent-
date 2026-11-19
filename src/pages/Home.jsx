@@ -85,7 +85,7 @@ export default function Home() {
   return (
     <div className="space-y-16 sm:space-y-20 lg:space-y-24 bg-white text-zinc-800 pb-20">
       
-      {/* 1. Hero Section (Kept intact with dark contrast) */}
+      {/* 1. Hero Section */}
       <Hero />
 
       {/* 2. Crowd Favorites & Hot Picks */}
@@ -203,7 +203,11 @@ export default function Home() {
                 key={tab}
                 type="button"
                 onClick={() => setActiveGalleryTab(tab)}
-                className={}
+                className={`text-xs font-bold px-4 py-1.5 rounded-full transition-all ${
+                  activeGalleryTab === tab
+                    ? 'bg-cheezRed text-white shadow-xs'
+                    : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200'
+                }`}
               >
                 {tab}
               </button>
