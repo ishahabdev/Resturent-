@@ -1,10 +1,10 @@
 export const FILTER_OPTIONS = [
-  { value: 'all', selectLabel: 'Todas Categorias', buttonLabel: 'Todas' },
-  { value: 'entradas', selectLabel: 'Entradas & Petiscos', buttonLabel: 'Entradas' },
-  { value: 'tradicionais', selectLabel: 'Burgers Tradicionais', buttonLabel: 'Tradicionais' },
+  { value: 'all', selectLabel: 'All Categories', buttonLabel: 'All' },
+  { value: 'entradas', selectLabel: 'Starters & Snacks', buttonLabel: 'Starters' },
+  { value: 'tradicionais', selectLabel: 'Traditional Burgers', buttonLabel: 'Traditional' },
   { value: 'hotdogs', selectLabel: 'Hot Dogs', buttonLabel: 'Hot Dogs' },
-  { value: 'burgerdisco', selectLabel: 'Burger Disco', buttonLabel: 'Burger Disco' },
-  { value: 'frango', selectLabel: 'Burgers de Frango', buttonLabel: 'Frango' },
-  { value: 'linhakids', selectLabel: 'Linha Kids', buttonLabel: 'Kids' },
-  { value: 'bebidas', selectLabel: 'Bebidas & Shakes', buttonLabel: 'Bebidas' },
+  { value: 'burgerdisco', selectLabel: 'Disco Burgers', buttonLabel: 'Disco Burgers' },
+  { value: 'frango', selectLabel: 'Chicken Burgers', buttonLabel: 'Chicken' },
+  { value: 'linhakids', selectLabel: 'Kids Menu', buttonLabel: 'Kids' },
+  { value: 'bebidas', selectLabel: 'Drinks & Shakes', buttonLabel: 'Drinks' },
 ];

@@ -6,7 +6,7 @@ function FloatingCart() {
   const { setCartOpen } = useCartActions();
 
   return (
-    <div id="floating-cart-btn" title="Ver Carrinho" onClick={() => setCartOpen(true)}>
+    <div id="floating-cart-btn" title="View Cart" onClick={() => setCartOpen(true)}>
       🛒 <span id="floating-cart-count">{totals.count}</span>
     </div>
   );

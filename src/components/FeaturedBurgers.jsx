@@ -25,7 +25,7 @@ export default function FeaturedBurgers() {
 
   return (
     <section id="featured-burgers" ref={ref}>
-      <h2 className="heading">Nossos Destaques</h2>
+      <h2 className="heading">Our Highlights</h2>
 
       <Swiper
         className="mySwiper"

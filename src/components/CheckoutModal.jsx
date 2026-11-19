@@ -27,26 +27,26 @@ function CheckoutModal() {
         .join('\n');
 
       const message = `
-📦 PEDIDO UFO BURGER
+📦 UFO BURGER ORDER
 
-👤 Cliente: ${name.trim()}
+👤 Customer: ${name.trim()}
 
-🛍 Itens:
+🛍 Items:
 ${itemList}
 
-💰 Total dos Produtos: ${formatBRL(totals.subtotal)}
-${totals.fee > 0 ? `🚚 Entrega: ${formatBRL(totals.fee)}` : ''}
-🔢 Total Final: ${formatBRL(totals.total)}
+💰 Products Total: ${formatBRL(totals.subtotal)}
+${totals.fee > 0 ? `🚚 Delivery: ${formatBRL(totals.fee)}` : ''}
+🔢 Final Total: ${formatBRL(totals.total)}
 
-🚚 Entrega ou Retirada: ${delivery}
-🏠 Endereço: ${address.trim()}
-📍 Ponto de referência: ${reference.trim()}
-🏘 Bairro: ${bairro.trim()}
-📞 Telefone: ${phone.trim()}
+🚚 Delivery or Pickup: ${delivery}
+🏠 Address: ${address.trim()}
+📍 Reference point: ${reference.trim()}
+🏘 Neighborhood: ${bairro.trim()}
+📞 Phone: ${phone.trim()}
 
-📝 Observações: ${comments.trim() || 'Nenhuma'}
+📝 Notes: ${comments.trim() || 'None'}
 
-🔗 Pedido enviado via site www.ufoburgermcp.com
+🔗 Order sent via www.ufoburgermcp.com
   `;
 
       window.location.href = `${WHATSAPP_URL}?text=${encodeURIComponent(message.trim())}`;
@@ -63,12 +63,12 @@ ${totals.fee > 0 ? `🚚 Entrega: ${formatBRL(totals.fee)}` : ''}
         <span className="close-modal" onClick={handleClose}>
           &times;
         </span>
-        <h3>Finalizar Pedido</h3>
+        <h3>Complete Order</h3>
         <form id="checkout-form" onSubmit={handleSubmit}>
-          <label>Seu Nome:</label>
+          <label>Your Name:</label>
           <input type="text" name="name" required value={name} onChange={(e) => setName(e.target.value)} />
 
-          <label>Número de Telefone:</label>
+          <label>Phone Number:</label>
           <input
             type="tel"
             name="phone"
@@ -78,26 +78,26 @@ ${totals.fee > 0 ? `🚚 Entrega: ${formatBRL(totals.fee)}` : ''}
             onChange={(e) => setPhone(e.target.value)}
           />
 
-          <label>Forma de Entrega:</label>
+          <label>Delivery Method:</label>
           <select name="delivery" required value={delivery} onChange={handleDeliveryChange}>
-            <option value="Retirada">Retirada</option>
-            <option value="Entrega">Entrega</option>
+            <option value="Pickup">Pickup</option>
+            <option value="Delivery">Delivery</option>
           </select>
 
-          <div id="address-fields" style={{ display: delivery === 'Entrega' ? 'block' : 'none' }}>
-            <label>Endereço:</label>
+          <div id="address-fields" style={{ display: delivery === 'Delivery' ? 'block' : 'none' }}>
+            <label>Address:</label>
             <input type="text" name="address" value={address} onChange={(e) => setAddress(e.target.value)} />
-            <label>Ponto de Referência:</label>
+            <label>Reference Point:</label>
             <input type="text" name="reference" value={reference} onChange={(e) => setReference(e.target.value)} />
-            <label>Bairro:</label>
+            <label>Neighborhood:</label>
             <input type="text" name="bairro" value={bairro} onChange={(e) => setBairro(e.target.value)} />
           </div>
 
-          <label>Comentário (opcional):</label>
+          <label>Notes (optional):</label>
           <textarea name="comments" value={comments} onChange={(e) => setComments(e.target.value)} />
 
           <button type="submit" className="btn">
-            Completar Pedido
+            Place Order
           </button>
         </form>
       </div>

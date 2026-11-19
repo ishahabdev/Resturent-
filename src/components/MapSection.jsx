@@ -6,12 +6,12 @@ function MapSection() {
 
   return (
     <section id="map" ref={ref}>
-      <h2 className="heading">Encontre-nos</h2>
+      <h2 className="heading">Find Us</h2>
       <p>Av. Profa. Cora de Carvalho, 2882 - Santa Rita, Macapá - AP</p>
 
       <div style={{ width: '100%', height: 400, marginTop: 20 }}>
         <iframe
-          title="Localização UFO BURGER"
+          title="UFO BURGER Location"
           src="https://www.google.com/maps?q=Av.%20Profa.%20Cora%20de%20Carvalho,%202882%20-%20Santa%20Rita,%20Macap%C3%A1%20-%20AP&output=embed"
           width="100%"
           height="100%"

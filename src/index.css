@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Cheezora logo text with red fill and golden-yellow outline/shadow */
+  .cheezora-logo-text {
+    font-family: 'Fredoka', 'Baloo 2', cursive, sans-serif;
+    color: #D62828;
+    text-shadow: 
+      -1.5px -1.5px 0 #F9A826,  
+       1.5px -1.5px 0 #F9A826,
+      -1.5px  1.5px 0 #F9A826,
+       1.5px  1.5px 0 #F9A826,
+       0 4px 10px rgba(249, 168, 38, 0.45);
+  }
+
+  .cheezora-logo-text-footer {
+    font-family: 'Fredoka', 'Baloo 2', cursive, sans-serif;
+    color: #FFFFFF;
+    text-shadow: 
+      -1.5px -1.5px 0 #F9A826,  
+       1.5px -1.5px 0 #F9A826,
+      -1.5px  1.5px 0 #F9A826,
+       1.5px  1.5px 0 #F9A826,
+       0 4px 12px rgba(214, 40, 40, 0.5);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFF6E5;
+  color: #3B1F0E;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for menu filters & cart */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF6E5;
+}
+::-webkit-scrollbar-thumb {
+  background: #F9A826;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D62828;
+}

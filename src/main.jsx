@@ -1,12 +1,20 @@
+import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import '../style.min.css';
-import './styles/theme.css';
+import { CartProvider } from './context/CartContext';
+import './index.css';
 
-createRoot(document.getElementById('root')).render(<App />);
+const rootElement = document.getElementById('root');
 
-if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
-  });
+if (rootElement) {
+  createRoot(rootElement).render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </BrowserRouter>
+    </React.StrictMode>
+  );
 }

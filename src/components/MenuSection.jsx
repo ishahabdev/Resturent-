@@ -13,7 +13,7 @@ export default function MenuSection({ activeCategory }) {
 
   return (
     <section id="menu" ref={ref}>
-      <h2 className="heading">Nosso Cardápio</h2>
+      <h2 className="heading">Our Menu</h2>
 
       {visibleCategories.map((category) => (
         <MenuCategory key={category.value} category={category} items={MENU[category.value]} />

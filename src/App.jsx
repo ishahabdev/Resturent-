@@ -1,84 +1,43 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
-import { CartProvider } from './context/CartContext';
-import { ThemeProvider } from './context/ThemeContext';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import MenuFilters from './components/MenuFilters';
-import InfoSections from './components/InfoSections';
 import Footer from './components/Footer';
-import FloatingCart from './components/FloatingCart';
 import CartDrawer from './components/CartDrawer';
-import CheckoutModal from './components/CheckoutModal';
-import Loader from './components/Loader';
+import WhatsAppButton from './components/WhatsAppButton';
+import ScrollToTop from './components/ScrollToTop';
 
-const FeaturedBurgers = lazy(() => import('./components/FeaturedBurgers'));
-const MenuSection = lazy(() => import('./components/MenuSection'));
-const MapSection = lazy(() => import('./components/MapSection'));
-
-function PreloadChunks() {
-  useEffect(() => {
-    let cancelled = false;
-    const prefetch = () => {
-      if (cancelled) return;
-      Promise.all([
-        import('./components/FeaturedBurgers'),
-        import('./components/MenuSection'),
-        import('./components/MapSection'),
-      ]).catch(() => {});
-    };
-    if ('requestIdleCallback' in window) {
-      const id = window.requestIdleCallback(prefetch, { timeout: 1500 });
-      return () => {
-        cancelled = true;
-        window.cancelIdleCallback(id);
-      };
-    }
-    const t = window.setTimeout(prefetch, 800);
-    return () => {
-      cancelled = true;
-      window.clearTimeout(t);
-    };
-  }, []);
-
-  return null;
-}
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import Contact from './pages/Contact';
+import Careers from './pages/Careers';
+import NotFound from './pages/NotFound';
 
 export default function App() {
-  const [activeCategory, setActiveCategory] = useState('all');
-  const handleCategoryChange = useCallback((category) => setActiveCategory(category), []);
-
   return (
-    <ThemeProvider>
-      <CartProvider>
-        <PreloadChunks />
-        <FloatingCart />
-        <Navbar />
-        <Hero />
+    <div className="flex flex-col min-h-screen bg-cheezCream text-cheezBrown">
+      <ScrollToTop />
+      
+      {/* Sticky Dark Navbar with Logo & Cart Counter */}
+      <Navbar />
 
-        <Suspense fallback={<Loader />}>
-          <FeaturedBurgers />
-        </Suspense>
+      {/* Main Page Content */}
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
 
-        <About />
+      {/* Slide-in Cart Drawer */}
+      <CartDrawer />
 
-        <MenuFilters activeCategory={activeCategory} onChange={handleCategoryChange} />
+      {/* Floating WhatsApp Quick Order Button */}
+      <WhatsAppButton />
 
-        <Suspense fallback={<Loader />}>
-          <MenuSection activeCategory={activeCategory} />
-        </Suspense>
-
-        <InfoSections />
-
-        <Suspense fallback={null}>
-          <MapSection />
-        </Suspense>
-
-        <Footer />
-
-        <CartDrawer />
-        <CheckoutModal />
-      </CartProvider>
-    </ThemeProvider>
+      {/* Footer with Contact, Hours, Map, Links */}
+      <Footer />
+    </div>
   );
 }

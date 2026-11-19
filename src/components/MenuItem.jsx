@@ -20,7 +20,7 @@ function MenuItem({ item }) {
         <p>{item.description || ''}</p>
         <span className="price">{item.priceText}</span>
         <button className="btn add-to-cart-btn" onClick={handleAdd}>
-          Adicionar
+          Add to Cart
         </button>
       </div>
     </div>
